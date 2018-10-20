@@ -1,35 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>CRUD - insert</title>
-</head>
-<body>
-	<h2>{{ title }}</h2>
+{% extends 'layout.html' %}
 
-	<div>
+{% block content %}
+	<div class="container-fluid">
 		<form method="post" action="">
-			<table border="0" width="50%">
-				<tr>
-					<td width="20%">name</td>
-					<td width="5%">:</td>
-					<td><input size="50" type="text" name="name"></td>
-				</tr>
-				<tr>
-					<td>address</td>
-					<td>:</td>
-					<td><textarea rows="5" cols="50" name="address"></textarea></td>
-				</tr>
-				<tr>
-					<td colspan="3">
-						<input type="submit" value="insert">
-					</td>
-				</tr>
-			</table>
+			<div class="form-group">
+				<label form="name">name</label>
+				<input class="form-control" placeholder="input your name here..." type="text" name="name">
+			</div>
+
+			<div class="form-group">
+				<label form="address">address</label>
+				<textarea name="address" class="form-control" placeholder="input your address here..."></textarea>
+			</div>
+
+			<button class="btn btn-success">insert</button>
+			<a href="{{ url_for('browse') }}" class="btn btn-warning">browse</a>
 		</form>
 	</div>
-
-	<div>
-		<a href="{{ url_for('index') }}"><< back</a>
-	</div>
-</body>
-</html>
+{% endblock %}

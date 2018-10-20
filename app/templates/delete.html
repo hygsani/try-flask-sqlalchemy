@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>CRUD - delete</title>
-</head>
-<body>
-	<h2>{{ title }}</h2>
+{% extends 'layout.html' %}
 
-	<div>
+{% block content %}
+	<div class="container-fluid">
 		<form method="post" action="">
 			<input type="hidden" name="id" value="{{ contact.id }}">
 
-			<table border="1" width="50%">
+			<table class="table">
 				<tr>
 					<td width="20%">name</td>
 					<td width="5%">:</td>
@@ -23,15 +18,11 @@
 				</tr>
 				<tr>
 					<td colspan="3">
-						<input type="submit" value="delete">
+						<input class="btn btn-danger" type="submit" value="delete">
+						<a href="{{ url_for('browse') }}" class="btn btn-warning">browse</a>
 					</td>
 				</tr>
 			</table>
 		</form>
 	</div>
-
-	<div>
-		<a href="{{ url_for('browse') }}"><< back</a>
-	</div>
-</body>
-</html>
+{% endblock %}

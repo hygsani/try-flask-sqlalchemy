@@ -4,7 +4,7 @@ from app.models.contact import Contact
 
 @app.route('/')
 def index():
-	return render_template('index.html', data='test')
+	return render_template('index.html', title='CRUD')
 
 @app.route('/browse')
 def browse():

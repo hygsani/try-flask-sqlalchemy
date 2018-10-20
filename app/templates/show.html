@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>CRUD - show</title>
-</head>
-<body>
-	<h2>{{ title }}</h2>
+{% extends 'layout.html' %}
 
-	<div>
-		<table border="1" width="50%">
+{% block content %}
+	<div class="container-fluid">
+		<table class="table">
 			<tr>
 				<td width="20%">name</td>
 				<td width="5%">:</td>
@@ -22,7 +17,6 @@
 	</div>
 
 	<div>
-		<a href="{{ url_for('browse') }}"><< back</a>
+		<a class="btn btn-warning" href="{{ url_for('browse') }}">back</a>
 	</div>
-</body>
-</html>
+{% endblock %}
