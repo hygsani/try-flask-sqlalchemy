@@ -1,6 +1,7 @@
 from app import app, db
 from flask import render_template, url_for, request, redirect
 from app.models.contact import Contact
+from app.forms.contact import ContactForm
 
 @app.route('/')
 def index():
@@ -14,29 +15,36 @@ def browse():
 
 @app.route('/insert', methods=['GET', 'POST'])
 def insert():
-	if request.method == 'POST':
-		contact = Contact(name=request.form['name'], address=request.form['address'])
+	contact_form = ContactForm(request.form)
+
+	if request.method == 'POST' and contact_form.validate():
+		contact = Contact(name=contact_form.name.data, address=contact_form.address.data)
 
 		db.session.add(contact)
 		db.session.commit()
 
 		return redirect(url_for('index'))
 
-	return render_template('insert.html', title='insert')
+	return render_template('insert.html', title='insert', form=contact_form)
 
 @app.route('/update/<int:id>', methods=['GET', 'POST'])
 def update(id):
 	contact = db.session.query(Contact).filter_by(id=id).first()
+	contact_form = ContactForm(request.form)
 
-	if request.method == 'POST':
-		contact.name = request.form['name']
-		contact.address = request.form['address']
+	if request.method == 'POST' and contact_form.validate():
+		contact.name = contact_form.name.data
+		contact.address = contact_form.address.data
 
 		db.session.commit()
 
 		return redirect(url_for('browse'))
 
-	return render_template('update.html', title='update', contact=contact)
+	contact_form.id.data = contact.id
+	contact_form.name.data = contact.name
+	contact_form.address.data = contact.address
+
+	return render_template('update.html', title='update', contact=contact, form=contact_form)
 
 @app.route('/delete/<int:id>', methods=['GET', 'POST'])
 def delete(id):
