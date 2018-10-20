@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CRUD - update</title>
+</head>
+<body>
+	<h2>{{ title }}</h2>
+
+	<div>
+		<form method="post" action="">
+			<input type="hidden" name="id" value="{{ contact.id }}">
+
+			<table border="0" width="50%">
+				<tr>
+					<td width="20%">name</td>
+					<td width="5%">:</td>
+					<td><input size="50" type="text" name="name" value="{{ contact.name }}"></td>
+				</tr>
+				<tr>
+					<td>address</td>
+					<td>:</td>
+					<td><textarea rows="5" cols="50" name="address">{{ contact.address }}</textarea></td>
+				</tr>
+				<tr>
+					<td colspan="3">
+						<input type="submit" value="update">
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+	<div>
+		<a href="{{ url_for('browse') }}"><< back</a>
+	</div>
+</body>
+</html>

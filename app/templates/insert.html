@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CRUD - insert</title>
+</head>
+<body>
+	<h2>{{ title }}</h2>
+
+	<div>
+		<form method="post" action="">
+			<table border="0" width="50%">
+				<tr>
+					<td width="20%">name</td>
+					<td width="5%">:</td>
+					<td><input size="50" type="text" name="name"></td>
+				</tr>
+				<tr>
+					<td>address</td>
+					<td>:</td>
+					<td><textarea rows="5" cols="50" name="address"></textarea></td>
+				</tr>
+				<tr>
+					<td colspan="3">
+						<input type="submit" value="insert">
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+	<div>
+		<a href="{{ url_for('index') }}"><< back</a>
+	</div>
+</body>
+</html>
