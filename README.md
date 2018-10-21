@@ -7,7 +7,7 @@ simple create, read, update and delete with flask and sqlalchemy (mysql).
 - pip install flask
 - pip install flask_sqlalchemy
 - pip install flask_wtf
-- pip install flask_wtf
+- pip install wtforms
 
 # run
 - goto console and type 'python run.py'
