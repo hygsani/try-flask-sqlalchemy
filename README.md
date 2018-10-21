@@ -12,6 +12,7 @@ simple create, read, update and delete with flask and sqlalchemy (mysql).
 - open browser and type 'localhost:9999' (change port in run.py file)
 
 # todo:
-- validation
 - use modal on confirm delete (javascript)
-- use template (bootstrap/foundation)
+- ~~validation~~
+- ~~use template (bootstrap/foundation)~~
+- ~~login~~
